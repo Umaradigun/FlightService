@@ -35,6 +35,7 @@
 ```
 
 - Once that is done navigate to your src folder and run `npx sequelize db:create`
+- Run `npx db:migrate`
 
 
 ## Flights Table 
