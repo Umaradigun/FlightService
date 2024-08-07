@@ -35,3 +35,13 @@
 ```
 
 - Once that is done navigate to your src folder and run `npx sequelize db:create`
+
+
+## Flights Table 
+- `id`
+- `departure_city_id`
+- `destination_city_id`
+- `airplane_id`
+- `departure`
+- `arrival`
+- `Flight number`
