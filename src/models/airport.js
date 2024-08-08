@@ -11,14 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Airport.belongsTo(models.City,{foreignKey:'city_id'});
+      Airport.belongsTo(models.City,{
+        foreignKey:'city_id',
+        onDelete: "CASCADE"
+      });
     }
   }
   Airport.init({
-    name: DataTypes.STRING,
-    allowNull: false,
+    name: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     address: DataTypes.STRING,
-    city_id: DataTypes.INTEGER
+    city_id: { 
+      type: DataTypes.INTEGER ,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Airport',
