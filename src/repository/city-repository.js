@@ -1,3 +1,4 @@
+const { where } = require('sequelize');
 const { City } = require('../models/index');
 
 
@@ -24,9 +25,14 @@ class CityRepository {
         }
     }
 
-    async updateCity ({cityId,name}){
+    async updateCity (cityId,data){
         try {
-           const cityUpdate =  await City.update({cityId,name});
+           const cityUpdate =  await City.update(data,{
+            where: {
+                id: cityId
+            }
+           })
+           return cityUpdate;
         } catch (error) {
             console.log("Error unable to update city");
             throw{error}
