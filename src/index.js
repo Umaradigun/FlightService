@@ -10,7 +10,7 @@ const ServerSetup = async () =>{
     app.use(bodyParser.json);
     app.use(bodyParser.urlencoded({ extended: true}));
     
-        
+    app.use('/api', ApiRoutes);
 
     
     app.listen(PORT, async() => {

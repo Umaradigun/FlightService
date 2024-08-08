@@ -5,7 +5,7 @@ const CityController = require('../../controllers/city-controller');
 
 
 
-router.post('/city',CityController);
+router.post('/city',CityController.create);
 
 
 module.exports = router; 

@@ -1,1 +1,1 @@
-require('./src/index')
+const index = require('./src/index');
