@@ -19,7 +19,25 @@ class CityRepository {
                 }
             });
         } catch (error) {
-            throw error
+            console.log("Error unable to delete city")
+            throw {error}
+        }
+    }
+
+    async updateCity (cityId){
+        try {
+            await City.update
+        } catch (error) {
+            
+        }
+    };
+
+    async getCity(cityId){
+        try {
+            const city = await City.findByPk(cityId);
+        } catch (error) {
+            console.log('Error unable to update city')
+            throw {error}
         }
     }
 }
