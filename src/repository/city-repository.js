@@ -24,17 +24,19 @@ class CityRepository {
         }
     }
 
-    async updateCity (cityId){
+    async updateCity ({cityId,name}){
         try {
-            await City.update
+           const cityUpdate =  await City.update({cityId,name});
         } catch (error) {
-            
+            console.log("Error unable to update city");
+            throw{error}
         }
     };
 
     async getCity(cityId){
         try {
             const city = await City.findByPk(cityId);
+            return city;
         } catch (error) {
             console.log('Error unable to update city')
             throw {error}
