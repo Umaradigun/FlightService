@@ -17,12 +17,11 @@ class cityService {
     async deleteCity(cityId){
         try {
             const city = await this.cityRepository.deleteCity(cityId);
-            return city
         } catch (error) {
             console.log("Unable to delete city from the service layer");
             throw {error}
         }
-
+            return true;
     }
 
     async updateCity(cityId,data){
