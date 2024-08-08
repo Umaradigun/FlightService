@@ -11,6 +11,9 @@ const ServerSetup = async () =>{
     app.use(bodyParser.urlencoded({ extended: true}));
     
     app.use('/api', ApiRoutes);
+    app.get('*', (req, res) => {
+        res.send("404")
+    })
 
     
     app.listen(PORT, async() => {
