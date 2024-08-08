@@ -25,12 +25,13 @@ class cityService {
 
     }
 
-    async updateCity(){
+    async updateCity(cityId,data){
         try {
-            const city = await this.cityRepository.createCity(data);
+            const city = await this.cityRepository.updateCity(cityId,data);
             return city
         } catch (error) {
-            console.log
+            console.log("Error Unable to update city")
+            throw{error};
         }
 
     }
