@@ -19,7 +19,7 @@ class cityService {
             const city = await this.cityRepository.deleteCity(cityId);
         } catch (error) {
             console.log("Unable to delete city from the service layer");
-            throw {error}
+            throw {error};
         }
             return true;
     }
@@ -41,7 +41,7 @@ class cityService {
             return city
         } catch (error) {
             console.log("Unable to get city from the service layer")
-            throw {error}
+            throw {error};
         }
 
     }
