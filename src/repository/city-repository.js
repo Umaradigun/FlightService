@@ -1,3 +1,4 @@
+const { where } = require('sequelize');
 const { City } = require('../models/index');
 
 
@@ -18,6 +19,7 @@ class CityRepository {
                     id: cityId
                 }
             });
+            return true;
         } catch (error) {
             console.log("Error unable to delete city")
             throw {error}
@@ -50,6 +52,23 @@ class CityRepository {
             return city;
         } catch (error) {
             console.log('Error unable to update city')
+            throw {error}
+        }
+    };
+
+    async getAllCities (){
+        try {
+            // if (filter){
+            //     cityfilter = await City.findAll({
+            //         where: {
+
+            //         }
+            //     })
+            // }
+            const cities = await City.findAll();
+            return cities;
+        } catch (error) {
+            console.log('Error unable to Fetch cities')
             throw {error}
         }
     }
