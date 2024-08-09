@@ -10,7 +10,7 @@ class CityRepository {
     } catch (error) {
         throw error;
     }
-};
+    };
 
     async deleteCity (cityId) {
         try {
@@ -36,13 +36,20 @@ class CityRepository {
             //  returning: true,
             // plain: true
         //    });
+            // const city = await City.findByPk(cityId);
+            // city.name = data.name
+            // await city.save();
+            // return city;
+
             const city = await City.findByPk(cityId);
-            city.name = data.name
+            if (!city) throw new Error('City not found');
+            city.name = data.name;
             await city.save();
             return city;
+
         } catch (error) {
             console.log("Error unable to update city");
-            throw{error}
+            throw error;
         }
     };
 
@@ -52,7 +59,7 @@ class CityRepository {
             return city;
         } catch (error) {
             console.log('Error unable to update city')
-            throw {error}
+            throw error;
         }
     };
 
@@ -72,9 +79,10 @@ class CityRepository {
             return cities;
         } catch (error) {
             console.log('Error unable to Fetch cities')
-            throw {error}
+            throw error;
         }
     }
+   
 }
 
 module.exports = CityRepository;

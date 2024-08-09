@@ -28,7 +28,7 @@ const {Airport, City } = require('./models/index')
 
 const ServerSetup = async () =>{
     const app = express();
-    app.use(bodyParser.json);
+    app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true}));
     
     app.use('/api', ApiRoutes);

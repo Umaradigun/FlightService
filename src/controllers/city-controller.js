@@ -7,7 +7,7 @@ const  create = async (req, res) => {
     try {
         const createCity = await cityServices.createCity(req.body);
         return res.status(201).json({
-            data: city,
+            data: createCity,
             success: true,
             message:"City craeted successfully"
         });
@@ -53,7 +53,7 @@ const get = async (req,res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message:"Error deleting City",
+            message:"Error fetching City",
             err: error
         });
        }

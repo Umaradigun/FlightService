@@ -7,9 +7,10 @@ class cityService {
     async createCity(data){
         try {
             const city = await this.cityRepository.createCity(data);
-            return city
+            return city;
         } catch (error) {
             console.log("Unable to create city from the service layer");
+            throw error;
         }
 
     }
@@ -17,17 +18,17 @@ class cityService {
     async deleteCity(cityId){
         try {
             const city = await this.cityRepository.deleteCity(cityId);
+            return true;
         } catch (error) {
             console.log("Unable to delete city from the service layer");
-            throw {error};
+            throw error;
         }
-            return true;
     }
 
     async updateCity(cityId,data){
         try {
             const city = await this.cityRepository.updateCity(cityId,data);
-            return city
+            return city;
         } catch (error) {
             console.log("Error Unable to update city from the service layer")
             throw{error};
@@ -38,7 +39,7 @@ class cityService {
     async getCity(cityId){
         try {
             const city = await this.cityRepository.getCity(cityId);
-            return city
+            return city;
         } catch (error) {
             console.log("Unable to get city from the service layer")
             throw {error};
