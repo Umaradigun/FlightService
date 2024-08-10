@@ -18,7 +18,13 @@ class FlightService {
             console.log("Something went wrong in the repository layer");
             throw {error};
         }
+    };
+
+    async getFlightdata (){
+        // Todo 
     }
+
+
 }
 
 
