@@ -30,6 +30,7 @@ class CrudService{
     async get (id){
         try {
             const response = await this.repository.get(id);
+            return response;
         } catch (error) {
             console.log("Something went wrong in crud service");
             throw error;
@@ -38,16 +39,18 @@ class CrudService{
 
     async getAll (){
         try {
-            
+            const response = await this.repository.getAll();
+            return response;
         } catch (error) {
             console.log("Something went wrong in crud service");
             throw error;
         }
     };
 
-    async update (){
+    async update (id, data){
         try {
-            
+            const response = await this.repository.update(id, data);
+            return response;
         } catch (error) {
             console.log("Something went wrong in crud service");
             throw error;
