@@ -25,8 +25,25 @@ class FlightService {
         }
     };
 
-    async getFlightdata (){
-        // Todo 
+    async getFlight (flightId){
+        try {
+            const flight = await this.flightsRepository.getFlight(flightId);
+            return flight;
+        } catch (error) {
+            console.log("Unable to get city from the service layer")
+            throw {error};
+        }
+    }
+
+
+    async getAllFlightData (data){
+        try {
+            const flights = await this.flightsRepository.getAllFlights(data);
+            return flight;
+        } catch (error) {
+            console.log("Unable to get city from the service layer")
+            throw {error};
+        }
     }
 
 

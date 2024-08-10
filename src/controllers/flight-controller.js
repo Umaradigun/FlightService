@@ -21,9 +21,50 @@ const create = async (req, res) => {
             err: error
         });
     }
-}
+};
+
+
+const get = async (req,res) => {
+    try {
+        const getFlight = await flightService.getFlight(req.params.id);
+        return res.status(200).json({
+            data: getcity,
+            success: true,
+            message:"Flight fetched successfully"
+        });
+    } catch (error) { 
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message:"Error fetching flight",
+            err: error
+        });
+       }
+};
+
+
+
+const getAll = async (req,res) => {
+    try {
+        const getAllFlight = await flightService.getFlight(req.query);
+        return res.status(200).json({
+            data: getAllFlight,
+            success: true,
+            message:"Flight fetched successfully"
+        });
+    } catch (error) { 
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message:"Error fetching flight",
+            err: error
+        });
+       }
+};
+
 
 
 module.exports = {
     create,
+    get
 }
