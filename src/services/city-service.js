@@ -12,8 +12,20 @@ class cityService {
             console.log("Unable to create city from the service layer");
             throw error;
         }
+    };
 
-    }
+
+
+    async createMultiplesCities(dataArray){
+        try {
+            const city = await this.cityRepository.createCity(dataArray);
+            return city;
+        } catch (error) {
+            console.log("Unable to create city from the service layer");
+            throw error;
+        }
+
+    };
 
     async deleteCity(cityId){
         try {

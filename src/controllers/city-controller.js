@@ -20,7 +20,29 @@ const  create = async (req, res) => {
             err: error
         });
     }
-}
+};
+
+
+const  createMultiple  = async (req, res) => {
+    try {
+        const Cities = await cityServices.createMultiplesCities(req.body.cities);
+        return res.status(201).json({
+            data: createCity,
+            success: true,
+            message:"Cities craeted successfully"
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message:"Error Creating City",
+            err: error
+        });
+    }
+};
+
+
 
 const destroy = async (req,res) => {
     try {
@@ -106,5 +128,6 @@ module.exports = {
     destroy,
     update,
     get,
-    getAll
+    getAll,
+    createMultiple 
 }
