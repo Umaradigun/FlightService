@@ -50,7 +50,8 @@ const getAll = async (req,res) => {
         return res.status(200).json({
             data: getAllFlight,
             success: true,
-            message:"Flight fetched successfully"
+            message:"Flight fetched successfully",
+            err: {}
         });
     } catch (error) { 
         return res.status(500).json({
@@ -66,5 +67,6 @@ const getAll = async (req,res) => {
 
 module.exports = {
     create,
-    get
+    get,
+    getAll
 }
