@@ -18,10 +18,10 @@ const create = async (req, res) => {
             success: false,
             err: error,
             message: 'cannot create a new airport'
-        })
+        });
     }
 }
 
 module.exports = {
-    create,
+    create
 }
